@@ -2,11 +2,10 @@ import os
 from selene import browser, have, be
 
 
-def test_student_registration_form(browser_config):
+def test_student_registration_form():
     browser.open("/automation-practice-form")
 
-    #WHEN
-
+    # WHEN
 
     browser.element("#firstName").click().should(be.blank).type("Diana")
     browser.element("#lastName").click().should(be.blank).type("Sagaeva")
@@ -27,8 +26,7 @@ def test_student_registration_form(browser_config):
     browser.element("#react-select-4-input").type("Panipat").press_enter()
     browser.element("#submit").press_enter()
 
-    #THEN
-
+    # THEN
 
     browser.all("tbody tr td")[1::2].should(
         have.texts(
